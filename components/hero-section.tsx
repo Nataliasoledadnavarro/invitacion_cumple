@@ -7,6 +7,13 @@ import {FriendsCarousel} from "@/components/friends-carousel";
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
 
+  const eventDetails = [
+    {icon: CalendarDays, label: "Sab 28 de marzo", color: "text-primary"},
+    {icon: Clock, label: "16:00 hs", color: "text-primary"},
+    {icon: Coffee, label: "Merienda", color: "text-primary"},
+    {icon: HouseHeart, label: "En mi casa", color: "text-primary"},
+  ];
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -59,33 +66,22 @@ export function HeroSection() {
           <FriendsCarousel />
         </div>
 
-        {/* Event details - horizontal scroll on mobile */}
-        <div className="animate-on-scroll mb-8 sm:mb-10">
-          <div className="flex items-center justify-start sm:justify-center gap-2 sm:gap-4 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap scrollbar-hide">
-            <div className="flex-shrink-0 flex items-center gap-2 px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl bg-card border border-border shadow-sm">
-              <CalendarDays className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
-              <span className="text-sm sm:text-base text-foreground font-medium whitespace-nowrap">
-                Sab 28 de marzo
-              </span>
-            </div>
-            <div className="flex-shrink-0 flex items-center gap-2 px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl bg-card border border-border shadow-sm">
-              <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
-              <span className="text-sm sm:text-base text-foreground font-medium whitespace-nowrap">
-                16:00 hs
-              </span>
-            </div>
-            <div className="flex-shrink-0 flex items-center gap-2 px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl bg-card border border-border shadow-sm">
-              <Coffee className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
-              <span className="text-sm sm:text-base text-foreground font-medium whitespace-nowrap">
-                Merienda
-              </span>
-            </div>
-            <div className="flex-shrink-0 flex items-center gap-2 px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl bg-card border border-border shadow-sm">
-              <HouseHeart className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
-              <span className="text-sm sm:text-base text-foreground font-medium whitespace-nowrap">
-                En mi casa
-              </span>
-            </div>
+        {/* Event details - Modern Grid */}
+        <div className="animate-on-scroll mb-8 sm:mb-10 w-full">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+            {eventDetails.map((detail, index) => {
+              const IconComponent = detail.icon;
+              return (
+                <div
+                  key={index}
+                  className="flex flex-col items-center gap-2 p-3 sm:p-4 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-card to-card/80 border border-border/50 shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">
+                  <IconComponent className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
+                  <span className="text-xs sm:text-sm text-foreground font-semibold text-center leading-tight">
+                    {detail.label}
+                  </span>
+                </div>
+              );
+            })}
           </div>
         </div>
 

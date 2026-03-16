@@ -1,16 +1,36 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import Image from "next/image";
 
 // Fotos estaticas de las amigas - reemplaza con tus propias imagenes
 const friends = [
-  { id: 1, name: "Ana", image: "/friends/friend-1.jpg" },
-  { id: 2, name: "Laura", image: "/friends/friend-2.jpg" },
-  { id: 3, name: "Sofia", image: "/friends/friend-3.jpg" },
-  { id: 4, name: "Carmen", image: "/friends/friend-4.jpg" },
-  { id: 5, name: "Paula", image: "/friends/friend-5.jpg" },
-  { id: 6, name: "Maria", image: "/friends/friend-6.jpg" },
+  {id: 1, image: "/friends/friend-1.jpg"},
+  {id: 2, image: "/friends/friend-2.jpg"},
+  {id: 3, image: "/friends/friend-3.jpg"},
+  {id: 4, image: "/friends/friend-4.jpg"},
+  {id: 5, image: "/friends/friend-5.jpg"},
+  {id: 6, image: "/friends/friend-6.jpg"},
+  {id: 7, image: "/friends/friend-7.jpg"},
+  {id: 8, image: "/friends/friend-8.jpg"},
+  {id: 9, image: "/friends/friend-9.jpg"},
+  {id: 10, image: "/friends/friend-10.jpg"},
+  {id: 11, image: "/friends/friend-11.jpg"},
+  {id: 12, image: "/friends/friend-12.jpg"},
+  {id: 13, image: "/friends/friend-13.jpg"},
+  {id: 14, image: "/friends/friend-14.jpg"},
+  {id: 15, image: "/friends/friend-15.jpg"},
+  {id: 16, image: "/friends/friend-16.jpg"},
+  {id: 17, image: "/friends/friend-17.jpg"},
+  {id: 18, image: "/friends/friend-18.jpg"},
+  {id: 19, image: "/friends/friend-19.jpg"},
+  {id: 20, image: "/friends/friend-20.jpg"},
+  {id: 21, image: "/friends/friend-21.jpg"},
+  {id: 22, image: "/friends/friend-22.jpg"},
+  {id: 23, image: "/friends/friend-23.jpg"},
+  {id: 24, image: "/friends/friend-24.jpg"},
+  {id: 25, image: "/friends/friend-25.jpg"},
+  {id: 26, image: "/friends/friend-26.jpg"},
 ];
 
 export function FriendsCarousel() {
@@ -33,64 +53,58 @@ export function FriendsCarousel() {
     return indices;
   };
 
+  const handleAdjacentClick = (position: number) => {
+    if (position === 0) {
+      // Anterior
+      setCurrentIndex((prev) => (prev - 1 + friends.length) % friends.length);
+    } else if (position === 2) {
+      // Siguiente
+      setCurrentIndex((prev) => (prev + 1) % friends.length);
+    }
+  };
+
   const visibleIndices = getVisibleIndices();
 
   return (
-    <div className="relative w-full max-w-sm sm:max-w-md mx-auto h-40 sm:h-48">
+    <div className="relative w-full max-w-xl mx-auto h-75 sm:h-120">
       {visibleIndices.map((friendIndex, position) => {
         const friend = friends[friendIndex];
         const isCenter = position === 1;
         const isLeft = position === 0;
+        const isClickable = !isCenter;
 
         return (
           <div
             key={`${friend.id}-${position}`}
-            className="absolute top-1/2 left-1/2 transition-all duration-500 ease-out"
+            className={`absolute top-1/2 left-1/2 transition-all duration-500 ease-out ${
+              isClickable ? "cursor-pointer" : ""
+            }`}
             style={{
               transform: `
                 translate(-50%, -50%) 
-                translateX(${isCenter ? 0 : isLeft ? -65 : 65}%) 
-                scale(${isCenter ? 1 : 0.7})
+                translateX(${isCenter ? 0 : isLeft ? -70 : 70}%) 
+                scale(${isCenter ? 1 : 0.65})
               `,
               zIndex: isCenter ? 10 : 5,
               opacity: isCenter ? 1 : 0.5,
             }}
-          >
-            <div className="relative w-20 h-24 sm:w-28 sm:h-36 rounded-xl sm:rounded-2xl overflow-hidden border-3 sm:border-4 border-card shadow-xl bg-card">
+            onClick={() => isClickable && handleAdjacentClick(position)}>
+            <div
+              className={`relative w-40 h-56 sm:w-64 sm:h-96 rounded-2xl sm:rounded-3xl overflow-hidden border-4 sm:border-6 border-card shadow-2xl bg-card ${
+                isClickable ? "hover:shadow-xl transition-shadow" : ""
+              }`}>
               <Image
                 src={friend.image}
-                alt={friend.name}
+                alt={`Foto ${friend.id}`}
                 fill
                 className="object-cover"
-                sizes="(max-width: 640px) 80px, 112px"
+                sizes="(max-width: 640px) 160px, 256px"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
-              <div className="absolute bottom-1.5 sm:bottom-2 left-0 right-0 text-center">
-                <span className="text-card text-xs sm:text-sm font-medium drop-shadow-lg">
-                  {friend.name}
-                </span>
-              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent" />
             </div>
           </div>
         );
       })}
-
-      {/* Indicadores */}
-      <div className="absolute -bottom-5 sm:-bottom-6 left-1/2 -translate-x-1/2 flex gap-1">
-        {friends.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentIndex(index)}
-            suppressHydrationWarning
-            className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all ${
-              index === currentIndex
-                ? "bg-primary w-4 sm:w-6"
-                : "bg-primary/30"
-            }`}
-            aria-label={`Ver foto ${index + 1}`}
-          />
-        ))}
-      </div>
     </div>
   );
 }

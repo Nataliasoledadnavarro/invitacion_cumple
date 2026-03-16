@@ -174,7 +174,7 @@ export function RSVPSection() {
                         id="phrase"
                         value={designPhrase}
                         onChange={(e) => setDesignPhrase(e.target.value)}
-                        placeholder='Ej: "Usa el amor como un puente", "El decorado se calla", "Una diva soñada, ¿quién me puede culpar?", una palabra que te inspire...'
+                        placeholder='Ej: "Usa el amor como un puente", "El decorado se calla", etc'
                         rows={3}
                         className="w-full px-4 py-3 rounded-xl bg-secondary/50 border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all resize-none"
                       />
