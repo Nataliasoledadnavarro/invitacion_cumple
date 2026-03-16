@@ -81,6 +81,7 @@ export function FriendsCarousel() {
           <button
             key={index}
             onClick={() => setCurrentIndex(index)}
+            suppressHydrationWarning
             className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all ${
               index === currentIndex
                 ? "bg-primary w-4 sm:w-6"

@@ -49,16 +49,9 @@ export function Footer() {
         </h3>
 
         <p className="animate-on-scroll text-lg text-muted-foreground mb-8">
-          Va a ser una tarde muy especial compartiendo con mis amigas mas
-          queridas. ¡No te lo pierdas!
-        </p>
-
-        {/* Signature */}
-        <div className="animate-on-scroll">
-          <p className="font-serif text-2xl text-primary italic">
-            Con amor, Nati
-          </p>
-        </div>
+          Va a ser una tarde de mirar todas juntas a las mujeres de mi vida. 
+           <br/>
+          Me rodean las mejores...        </p>
 
         {/* Bottom decoration */}
         <div className="animate-on-scroll mt-12 flex items-center justify-center gap-3">
@@ -71,7 +64,7 @@ export function Footer() {
       {/* Subtle copyright */}
       <div className="mt-16 text-center">
         <p className="text-xs text-muted-foreground/60">
-          Cumple de Nati 2026
+          Cumple de Naty 2026
         </p>
       </div>
     </footer>

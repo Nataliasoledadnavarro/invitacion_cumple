@@ -117,6 +117,7 @@ export function RSVPSection() {
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="Ej: Maria Lopez"
+                      suppressHydrationWarning
                       className="w-full px-4 py-3 rounded-xl bg-secondary/50 border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
                     />
                   </div>
@@ -125,7 +126,7 @@ export function RSVPSection() {
                   <div className="flex items-center gap-3 py-2">
                     <div className="flex-1 h-px bg-border" />
                     <Paintbrush className="w-4 h-4 text-primary" />
-                    <span className="text-xs text-muted-foreground uppercase tracking-wider">Tu diseno para la totebag</span>
+                    <span className="text-xs text-muted-foreground uppercase tracking-wider">mandame tu diseño</span>
                     <Paintbrush className="w-4 h-4 text-primary" />
                     <div className="flex-1 h-px bg-border" />
                   </div>
@@ -135,6 +136,7 @@ export function RSVPSection() {
                     <button
                       type="button"
                       onClick={() => setDesignType("phrase")}
+                      suppressHydrationWarning
                       className={cn(
                         "flex-1 py-2.5 px-4 rounded-xl text-sm font-medium transition-all border",
                         designType === "phrase"
@@ -147,6 +149,7 @@ export function RSVPSection() {
                     <button
                       type="button"
                       onClick={() => setDesignType("image")}
+                      suppressHydrationWarning
                       className={cn(
                         "flex-1 py-2.5 px-4 rounded-xl text-sm font-medium transition-all border",
                         designType === "image"

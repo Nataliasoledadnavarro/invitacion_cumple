@@ -76,20 +76,22 @@ export function Navigation() {
           </div>
 
           {/* Mobile indicator dots */}
-          <div className="flex sm:hidden items-center gap-2">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "w-2 h-2 rounded-full transition-all",
-                  activeSection === item.href.slice(1)
-                    ? "bg-primary scale-125"
-                    : "bg-muted-foreground/30"
-                )}
-                aria-label={item.label}
-              />
-            ))}
+          <div className="flex items-center gap-2">
+            <div className="flex sm:hidden items-center gap-2">
+              {navItems.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className={cn(
+                    "w-2 h-2 rounded-full transition-all",
+                    activeSection === item.href.slice(1)
+                      ? "bg-primary scale-125"
+                      : "bg-muted-foreground/30"
+                  )}
+                  aria-label={item.label}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
