@@ -1,7 +1,7 @@
 "use client";
 
 import {useEffect, useRef} from "react";
-import {Palette, ShoppingBag, Brain, Sparkles} from "lucide-react";
+import {Palette, ShoppingBag, Brain, Sparkles, Flame, Gem, Pyramid} from "lucide-react";
 
 export function ActivitySection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -56,8 +56,7 @@ export function ActivitySection() {
             Incluye un mini momento creativo.
           </h2>
           <p className="animate-on-scroll text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-            Idea random de mi combo ♈ ♊ ♑: cada una va a crear su propio
-            diseño y la van a estampar en algo que se llevan para ustedes.
+            Idea random de mi combo ♈ ♊ ♑
           </p>
         </div>
 
@@ -108,7 +107,7 @@ export function ActivitySection() {
                     Materiales disponibles
                   </h3>
                   <p className="text-sm sm:text-base text-muted-foreground">
-                    Todo lo necesario, mate libre y algo rico. 
+                    Todo lo necesario, mate en abundancia, espacio de calma, risas aseguradas y cositas ricas. 
                   </p>
                 </div>
               </div>
@@ -122,7 +121,7 @@ export function ActivitySection() {
                     Pensá tu diseño
                   </h3>
                   <p className="text-sm sm:text-base text-muted-foreground">
-                    Puede ser una frase, un dibujo o algo que te represente.
+                    Puede ser una frase, un dibujo simple o algo que te represente.
                   </p>
                 </div>
               </div>
@@ -131,7 +130,7 @@ export function ActivitySection() {
 
           {/* Tip box */}
           <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-border">
-            <div className="flex items-start gap-3 p-3 sm:p-4 rounded-lg sm:rounded-xl bg-primary/5 border border-primary/10">
+            <div className="flex items-center gap-3 p-3 sm:p-4 rounded-lg sm:rounded-xl bg-primary/5 border border-primary/10">
               <span className="text-xl sm:text-2xl flex-shrink-0">💡</span>
               <p className="text-xs sm:text-sm text-muted-foreground">
                 <span className="font-medium text-foreground">Tip:</span> Podes

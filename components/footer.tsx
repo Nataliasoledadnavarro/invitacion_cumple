@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { Heart } from "lucide-react";
+import {useEffect, useRef} from "react";
+import {Rainbow} from "lucide-react";
 
 export function Footer() {
   const footerRef = useRef<HTMLElement>(null);
@@ -15,7 +15,7 @@ export function Footer() {
           }
         });
       },
-      { threshold: 0.1 }
+      {threshold: 0.1},
     );
 
     const elements = footerRef.current?.querySelectorAll(".animate-on-scroll");
@@ -28,10 +28,7 @@ export function Footer() {
   }, []);
 
   return (
-    <footer
-      ref={footerRef}
-      className="relative py-20 px-6 bg-secondary/30"
-    >
+    <footer ref={footerRef} className="relative py-20 px-6 bg-secondary/30">
       {/* Decorative top border */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
@@ -39,7 +36,7 @@ export function Footer() {
         {/* Decorative heart pattern */}
         <div className="animate-on-scroll flex items-center justify-center gap-2 mb-8">
           <div className="w-8 h-px bg-border" />
-          <Heart className="w-5 h-5 text-primary fill-primary/30" />
+          <Rainbow className="w-10 h-10 text-primary fill-primary/30" />
           <div className="w-8 h-px bg-border" />
         </div>
 
@@ -48,24 +45,21 @@ export function Footer() {
           ¡Te espero!
         </h3>
 
-        <p className="animate-on-scroll text-lg text-muted-foreground mb-8">
-          Va a ser una tarde de mirar todas juntas a las mujeres de mi vida. 
-           <br/>
-          Me rodean las mejores...        </p>
+        <div className="animate-on-scroll flex flex-col gap-1 text-lg text-muted-foreground mb-8">
+          <p>
+           ¡No me falles! <span className="font-bold">ahre!</span>, se hacia la
+            joven..🤌
+          </p>
+          <p>Me rodean las mejores... Las Adoro!</p>
+        </div>
 
         {/* Bottom decoration */}
-        <div className="animate-on-scroll mt-12 flex items-center justify-center gap-3">
-          <div className="w-2 h-2 rounded-full bg-primary/40" />
-          <div className="w-3 h-3 rounded-full bg-accent/60" />
-          <div className="w-2 h-2 rounded-full bg-primary/40" />
-        </div>
+        <div className="animate-on-scroll mt-12 h-px w-full max-w-xs mx-auto bg-linear-to-r from-transparent via-primary/40 to-transparent" />
       </div>
 
       {/* Subtle copyright */}
       <div className="mt-16 text-center">
-        <p className="text-xs text-muted-foreground/60">
-          Cumple de Naty 2026
-        </p>
+        <p className="text-xs text-muted-foreground/60">Cumple de Naty 2026</p>
       </div>
     </footer>
   );

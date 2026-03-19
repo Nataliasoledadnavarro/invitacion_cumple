@@ -39,7 +39,7 @@ export function HeroSection() {
     <section
       ref={sectionRef}
       id="hero"
-      className="relative min-h-svh flex flex-col items-center justify-center px-4 sm:px-6 py-12 sm:py-16 overflow-hidden">
+      className="relative min-h-svh flex flex-col items-center justify-center px-4 sm:px-6 sm:py-30 overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-24 -right-24 w-64 sm:w-96 h-64 sm:h-96 rounded-full bg-primary/10 blur-3xl" />
@@ -50,7 +50,7 @@ export function HeroSection() {
       <div className="relative z-10 text-center w-full max-w-2xl mx-auto">
         {/* Main heading */}
         <h1 className="animate-on-scroll font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-foreground mb-3 sm:mb-4 leading-tight text-balance">
-          ¡Celebremos juntas!
+          ¡OMG, que vertigo!
         </h1>
 
         {/* Tagline */}
@@ -59,10 +59,8 @@ export function HeroSection() {
         </p>
 
         {/* Friends Carousel */}
-        <div className="animate-on-scroll mb-8 sm:mb-10">
-          <p className="text-xs sm:text-sm text-muted-foreground mb-3 uppercase tracking-wider">
-            Nosotras...
-          </p>
+        <div className="animate-on-scroll mb-6 sm:mb-10">
+
           <FriendsCarousel />
         </div>
 
