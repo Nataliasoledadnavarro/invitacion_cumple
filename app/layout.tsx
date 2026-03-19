@@ -16,7 +16,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: '¡Nati cumple 41!',
+  title: 'Cumplo 41... OMG!',
   description: 'Te invito a festejar conmigo - Sábado 28 de marzo',
   generator: 'v0.app',
   icons: {
