@@ -169,7 +169,7 @@ export function RSVPSection() {
                   />
 
                   {/* Info */}
-                 <div className="flex gap-3 items-start p-4 rounded-xl border border-primary/50">
+                  <div className="flex gap-3 items-start p-4 rounded-xl border border-primary/50">
                     <MessageCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       Si tenés una imagen,{" "}
@@ -190,23 +190,36 @@ export function RSVPSection() {
                         ? "bg-primary text-white"
                         : "bg-muted text-muted-foreground",
                     )}>
-                      <HandMetal className="w-5 h-5" />
+                    <HandMetal className="w-5 h-5" />
                     {isSubmitting ? "Confirmando..." : "¡Yo voy!"}
                   </button>
                 </div>
               ) : (
-                <div className="text-center">
-                  <Check className="mx-auto w-10 h-10 text-primary" />
-                  <h3 className="text-xl font-semibold mt-2">¡Confirmado!</h3>
+                <div className="text-center py-6">
+                  {/* Icono */}
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
+                    <Check className="w-8 h-8 text-primary" />
+                  </div>
 
+                  {/* Título */}
+                  <h3 className="text-2xl font-semibold text-foreground">
+                    ¡Confirmada!
+                  </h3>
+
+                  {/* Texto */}
                   <p className="mt-2 text-muted-foreground">
-                    Gracias {name}, te espero! 
+                    Gracias{" "}
+                    <span className="font-medium text-foreground">{name}</span>,
+                    te espero! 🎉
                   </p>
 
+                  {/* CTA */}
                   <a
                     href={buildWhatsAppURL()}
                     target="_blank"
-                    className="mt-4 inline-block bg-green-500 text-white px-4 py-2 rounded-xl">
+                    rel="noopener noreferrer"
+                    className="mt-6 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#25D366] text-white font-medium hover:bg-[#20c05c] transition-all shadow-md hover:shadow-lg">
+                    <MessageCircle className="w-5 h-5" />
                     Abrir WhatsApp
                   </a>
                 </div>
