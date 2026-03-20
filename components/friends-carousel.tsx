@@ -5,6 +5,7 @@ import Image from "next/image";
 
 // Fotos estaticas de las amigas - reemplaza con tus propias imagenes
 const friends = [
+  {id: 0, image: "/friends/friend-0.jpg"},
   {id: 1, image: "/friends/friend-1.jpg"},
   {id: 2, image: "/friends/friend-2.jpg"},
   {id: 3, image: "/friends/friend-3.jpg"},

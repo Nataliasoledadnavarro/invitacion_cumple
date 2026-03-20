@@ -50,7 +50,7 @@ export function Footer() {
            ¡No me falles! <span className="font-bold">ahre!</span>, se hacia la
             joven..🤌
           </p>
-          <p>Me rodean las mejores... Las Adoro!</p>
+          <p>Me rodean las mejores... <span className="font-bold">Las Adoro!</span></p>
         </div>
 
         {/* Bottom decoration */}
