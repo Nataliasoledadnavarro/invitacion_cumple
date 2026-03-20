@@ -32,7 +32,7 @@ const friends = [
   { id: 24, image: "/friends/friend-24.jpg" },
   { id: 25, image: "/friends/friend-25.jpg" },
   { id: 26, image: "/friends/friend-26.jpg" },
-  { id: 26, image: "/friends/friend-26.jpg" },
+  { id: 27, image: "/friends/friend-27.jpg" },
 ];
 
 export function FriendsCarousel() {
