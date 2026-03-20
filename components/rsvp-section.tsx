@@ -1,11 +1,53 @@
 "use client";
 
-import {useEffect, useRef, useState} from "react";
-import {Check, HandMetal, Paintbrush, MessageCircle} from "lucide-react";
-import {cn} from "@/lib/utils";
-import {Confetti} from "@/components/confetti";
+import { useEffect, useRef, useState } from "react";
+import {
+  Check,
+  HandMetal,
+  Paintbrush,
+  MessageCircle,
+  CalendarPlus,
+} from "lucide-react";
+import { cn } from "@/lib/utils";
+import { Confetti } from "@/components/confetti";
 
 const WHATSAPP_NUMBER = "5491161737665";
+
+// 📅 Google Calendar
+const buildGoogleCalendarURL = () => {
+  const url = new URL("https://calendar.google.com/calendar/render");
+  url.searchParams.set("action", "TEMPLATE");
+  url.searchParams.set("text", "Cumple Naty! 🎉");
+  url.searchParams.set("dates", "20260328T160000/20260328T200000");
+  url.searchParams.set(
+    "details",
+    "Ahi nos vemos!! abrazo! 🫶",
+  );
+  url.searchParams.set("location", "En mi casa 🏠");
+  url.searchParams.set("ctz", "America/Argentina/Buenos_Aires");
+
+  return url.toString();
+};
+
+// 📅 Apple / Outlook (.ics)
+const buildICSFile = () => {
+  const event = `BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+SUMMARY:Cumple 41 OMG! 🎉
+DTSTART:20260328T150000
+DTEND:20260328T220000
+DESCRIPTION:Festejo de cumple con pintada de tote bags 🎨
+LOCATION:Tu dirección acá
+END:VEVENT
+END:VCALENDAR`;
+
+  const blob = new Blob([event], {
+    type: "text/calendar;charset=utf-8",
+  });
+
+  return URL.createObjectURL(blob);
+};
 
 export function RSVPSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -17,7 +59,7 @@ export function RSVPSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isHydrated, setIsHydrated] = useState(false);
 
-  // ✅ Hydration safe (solo cliente)
+  // ✅ Hydration safe
   useEffect(() => {
     const storedConfirmed = localStorage.getItem("rsvp_sent") === "true";
     const storedName = localStorage.getItem("rsvp_name") ?? "";
@@ -27,7 +69,7 @@ export function RSVPSection() {
     setIsHydrated(true);
   }, []);
 
-  // Animaciones on scroll
+  // Animaciones
   useEffect(() => {
     if (!isHydrated) return;
 
@@ -39,7 +81,7 @@ export function RSVPSection() {
           }
         });
       },
-      {threshold: 0.1, rootMargin: "-50px"},
+      { threshold: 0.1, rootMargin: "-50px" },
     );
 
     const elements = sectionRef.current?.querySelectorAll(".animate-on-scroll");
@@ -52,7 +94,7 @@ export function RSVPSection() {
     return () => observer.disconnect();
   }, [isHydrated]);
 
-  // Generar URL WhatsApp
+  // WhatsApp
   const buildWhatsAppURL = () => {
     const hasPhrase = !!designPhrase.trim();
 
@@ -71,7 +113,7 @@ export function RSVPSection() {
     )}`;
   };
 
-  // Confirmar asistencia
+  // Confirmar
   const handleConfirm = async () => {
     if (!name.trim()) return;
 
@@ -92,7 +134,6 @@ export function RSVPSection() {
     }, 1200);
   };
 
-  // 🚫 Evita hydration mismatch
   if (!isHydrated) {
     return (
       <section className="py-24 text-center text-muted-foreground">
@@ -108,7 +149,8 @@ export function RSVPSection() {
       <section
         ref={sectionRef}
         id="confirmar"
-        className="relative py-16 sm:py-24 px-4 sm:px-6">
+        className="relative py-16 sm:py-24 px-4 sm:px-6"
+      >
         {/* Background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-0 left-1/4 w-64 h-64 rounded-full bg-accent/10 blur-3xl" />
@@ -118,7 +160,7 @@ export function RSVPSection() {
         <div className="relative z-10 max-w-xl mx-auto">
           {/* Header */}
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="animate-on-scroll font-serif text-3xl sm:text-4xl md:text-5xl font-semibold text-foreground mb-3 sm:mb-4 text-balance">
+            <h2 className="animate-on-scroll font-serif text-3xl sm:text-4xl md:text-5xl font-semibold text-foreground mb-3 sm:mb-4">
               ¿Venís?
             </h2>
             <p className="animate-on-scroll text-base sm:text-lg text-muted-foreground">
@@ -131,97 +173,70 @@ export function RSVPSection() {
               className={cn(
                 "bg-card rounded-3xl border border-border p-8 md:p-10 shadow-lg transition-all duration-500",
                 isConfirmed && "bg-primary/5 border-primary/20",
-              )}>
+              )}
+            >
               {!isConfirmed ? (
                 <div className="space-y-6">
-                  {/* Nombre */}
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Tu nombre
-                    </label>
-                    <input
-                      type="text"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      placeholder="Ej: Lali Espósito"
-                      className="w-full px-4 py-3 rounded-xl bg-secondary/50 border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
-                    />
-                  </div>
-
-                  {/* Divider */}
-                  <div className="flex items-center gap-3 py-2">
-                    <div className="flex-1 h-px bg-border" />
-                    <Paintbrush className="w-4 h-4 text-primary" />
-                    <span className="text-xs text-muted-foreground uppercase tracking-wider">
-                      tu diseño
-                    </span>
-                    <Paintbrush className="w-4 h-4 text-primary" />
-                    <div className="flex-1 h-px bg-border" />
-                  </div>
-
-                  {/* Frase */}
-                  <textarea
-                    value={designPhrase}
-                    onChange={(e) => setDesignPhrase(e.target.value)}
-                    placeholder='Ej: "Usa el amor como un puente"...'
-                    rows={3}
+                  <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Tu nombre"
                     className="w-full px-4 py-3 rounded-xl bg-secondary/50 border border-border"
                   />
 
-                  {/* Info */}
-                  <div className="flex gap-3 items-start p-4 rounded-xl border border-primary/50">
-                    <MessageCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      Si tenés una imagen,{" "}
-                      <span className="text-foreground font-medium">
-                        adjuntála directo en WhatsApp
-                      </span>{" "}
-                      cuando te abra el chat.
-                    </p>
-                  </div>
+                  <textarea
+                    value={designPhrase}
+                    onChange={(e) => setDesignPhrase(e.target.value)}
+                    placeholder="Frase opcional..."
+                    className="w-full px-4 py-3 rounded-xl bg-secondary/50 border border-border"
+                  />
 
-                  {/* CTA */}
                   <button
                     onClick={handleConfirm}
                     disabled={!name.trim() || isSubmitting}
-                    className={cn(
-                      "w-full py-4 rounded-xl flex items-center justify-center gap-4",
-                      name.trim()
-                        ? "bg-primary text-white"
-                        : "bg-muted text-muted-foreground",
-                    )}>
-                    <HandMetal className="w-5 h-5" />
+                    className="w-full py-4 rounded-xl bg-primary text-white"
+                  >
                     {isSubmitting ? "Confirmando..." : "¡Yo voy!"}
                   </button>
                 </div>
               ) : (
                 <div className="text-center py-6">
-                  {/* Icono */}
                   <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
                     <Check className="w-8 h-8 text-primary" />
                   </div>
 
-                  {/* Título */}
-                  <h3 className="text-2xl font-semibold text-foreground">
-                    ¡Confirmada!
-                  </h3>
+                  <h3 className="text-2xl font-semibold">¡Confirmada!</h3>
 
-                  {/* Texto */}
-                  <p className="mt-2 text-muted-foreground">
+                  <p className="mt-2 text-muted-foreground mb-6">
                     Gracias{" "}
                     <span className="font-medium text-foreground">{name}</span>,
                     te espero! 🎉
                   </p>
 
-                  {/* CTA */}
-                  <a
-                    href={buildWhatsAppURL()}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-6 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#25D366] text-white font-medium hover:bg-[#20c05c] transition-all shadow-md hover:shadow-lg">
-                    <MessageCircle className="w-5 h-5" />
-                    Abrir WhatsApp
-                  </a>
+                  <div className="flex flex-col gap-3 items-center">
+                    {/* WhatsApp */}
+                    <a
+                      href={buildWhatsAppURL()}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#25D366] text-white font-medium hover:bg-[#20c05c] transition-all shadow-md hover:shadow-lg"
+                    >
+                      <MessageCircle className="w-5 h-5" />
+                      Abrir WhatsApp
+                    </a>
+
+                    {/* Google Calendar */}
+                    <a
+                      href={buildGoogleCalendarURL()}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#4285F4] text-white font-medium hover:bg-[#3367d6] transition-all shadow-md hover:shadow-lg"
+                    >
+                      <CalendarPlus className="w-5 h-5" />
+                      Agendar en Google
+                    </a>
+                  </div>
                 </div>
               )}
             </div>
