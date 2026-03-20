@@ -17,15 +17,15 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "41 OMG!",
-  description: "Te invito a festejar conmigo - Sábado 28 de marzo",
+  description: "Celebremos juntas!!",
   generator: "v0.app",
   icons: {
     icon: "/icon.svg", // ← también corregí esto, sin /public/
   },
   openGraph: {
     title: "41 OMG! 🎉",
-    description: "Te invito a festejar conmigo - Sábado 28 de marzo",
-    url: "https://invitacion-cumple-five.vercel.app", // ← tu URL de Netlify
+    description: "Celebremos juntas!!",
+    url: "https://cumplo41.netlify.app/",
     siteName: "41 OMG!",
     images: [
       {
