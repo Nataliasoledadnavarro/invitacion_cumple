@@ -1,7 +1,15 @@
 "use client";
 
 import {useEffect, useRef} from "react";
-import {Palette, ShoppingBag, Brain, Sparkles, Flame, Gem, Pyramid} from "lucide-react";
+import {
+  Palette,
+  ShoppingBag,
+  Brain,
+  Sparkles,
+  Flame,
+  Gem,
+  Pyramid,
+} from "lucide-react";
 
 export function ActivitySection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -93,7 +101,8 @@ export function ActivitySection() {
                     Tu lienzo
                   </h3>
                   <p className="text-sm sm:text-base text-muted-foreground">
-                   Cada una lo recibe listo para intervenir con su propio diseño.
+                    Cada una lo recibe listo para intervenir con su propio
+                    diseño.
                   </p>
                 </div>
               </div>
@@ -107,7 +116,8 @@ export function ActivitySection() {
                     Materiales disponibles
                   </h3>
                   <p className="text-sm sm:text-base text-muted-foreground">
-                    Todo lo necesario, mate en abundancia, espacio de calma, risas aseguradas y cositas ricas. 
+                    Todo lo necesario, mate en abundancia, espacio de calma,
+                    risas aseguradas y cositas ricas.
                   </p>
                 </div>
               </div>
@@ -121,7 +131,8 @@ export function ActivitySection() {
                     Pensá tu diseño
                   </h3>
                   <p className="text-sm sm:text-base text-muted-foreground">
-                    Puede ser una frase, un dibujo simple o algo que te represente.
+                    Puede ser una frase, un dibujo simple o algo que te
+                    represente.
                   </p>
                 </div>
               </div>
@@ -133,8 +144,9 @@ export function ActivitySection() {
             <div className="flex items-center gap-3 p-3 sm:p-4 rounded-lg sm:rounded-xl bg-primary/5 border border-primary/10">
               <span className="text-xl sm:text-2xl flex-shrink-0">💡</span>
               <p className="text-xs sm:text-sm text-muted-foreground">
-                <span className="font-medium text-foreground">Tip:</span> Podes
-                Si te falta inspiración, un paseo por Pinterest o Instagram siempre ayuda.
+                <span className="font-medium text-foreground">Tip: </span>
+                Si te falta inspiración, un paseo por Pinterest o Instagram
+                siempre ayuda.
               </p>
             </div>
           </div>

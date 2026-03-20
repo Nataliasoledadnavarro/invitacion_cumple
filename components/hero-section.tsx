@@ -50,7 +50,7 @@ export function HeroSection() {
       <div className="relative z-10 text-center w-full max-w-2xl mx-auto">
         {/* Main heading */}
         <h1 className="animate-on-scroll font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-foreground mb-3 sm:mb-4 leading-tight text-balance">
-          ¡OMG, que vertigo!
+          ¡OMG, que vértigo!
         </h1>
 
         {/* Tagline */}
