@@ -1,37 +1,38 @@
 "use client";
 
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
 // Fotos estaticas de las amigas - reemplaza con tus propias imagenes
 const friends = [
-  {id: 0, image: "/friends/friend-0.jpg"},
-  {id: 1, image: "/friends/friend-1.jpg"},
-  {id: 2, image: "/friends/friend-2.jpg"},
-  {id: 3, image: "/friends/friend-3.jpg"},
-  {id: 4, image: "/friends/friend-4.jpg"},
-  {id: 5, image: "/friends/friend-5.jpg"},
-  {id: 6, image: "/friends/friend-6.jpg"},
-  {id: 7, image: "/friends/friend-7.jpg"},
-  {id: 8, image: "/friends/friend-8.jpg"},
-  {id: 9, image: "/friends/friend-9.jpg"},
-  {id: 10, image: "/friends/friend-10.jpg"},
-  {id: 11, image: "/friends/friend-11.jpg"},
-  {id: 12, image: "/friends/friend-12.jpg"},
-  {id: 13, image: "/friends/friend-13.jpg"},
-  {id: 14, image: "/friends/friend-14.jpg"},
-  {id: 15, image: "/friends/friend-15.jpg"},
-  {id: 16, image: "/friends/friend-16.jpg"},
-  {id: 17, image: "/friends/friend-17.jpg"},
-  {id: 18, image: "/friends/friend-18.jpg"},
-  {id: 19, image: "/friends/friend-19.jpg"},
-  {id: 20, image: "/friends/friend-20.jpg"},
-  {id: 21, image: "/friends/friend-21.jpg"},
-  {id: 22, image: "/friends/friend-22.jpg"},
-  {id: 23, image: "/friends/friend-23.jpg"},
-  {id: 24, image: "/friends/friend-24.jpg"},
-  {id: 25, image: "/friends/friend-25.jpg"},
-  {id: 26, image: "/friends/friend-26.jpg"},
+  { id: 0, image: "/friends/friend-0.jpg" },
+  { id: 1, image: "/friends/friend-1.jpg" },
+  { id: 2, image: "/friends/friend-2.jpg" },
+  { id: 3, image: "/friends/friend-3.jpg" },
+  { id: 4, image: "/friends/friend-4.jpg" },
+  { id: 5, image: "/friends/friend-5.jpg" },
+  { id: 6, image: "/friends/friend-6.jpg" },
+  { id: 7, image: "/friends/friend-7.jpg" },
+  { id: 8, image: "/friends/friend-8.jpg" },
+  { id: 9, image: "/friends/friend-9.jpg" },
+  { id: 10, image: "/friends/friend-10.jpg" },
+  { id: 11, image: "/friends/friend-11.jpg" },
+  { id: 12, image: "/friends/friend-12.jpg" },
+  { id: 13, image: "/friends/friend-13.jpg" },
+  { id: 14, image: "/friends/friend-14.jpg" },
+  { id: 15, image: "/friends/friend-15.jpg" },
+  { id: 16, image: "/friends/friend-16.jpg" },
+  { id: 17, image: "/friends/friend-17.jpg" },
+  { id: 18, image: "/friends/friend-18.jpg" },
+  { id: 19, image: "/friends/friend-19.jpg" },
+  { id: 20, image: "/friends/friend-20.jpg" },
+  { id: 21, image: "/friends/friend-21.jpg" },
+  { id: 22, image: "/friends/friend-22.jpg" },
+  { id: 23, image: "/friends/friend-23.jpg" },
+  { id: 24, image: "/friends/friend-24.jpg" },
+  { id: 25, image: "/friends/friend-25.jpg" },
+  { id: 26, image: "/friends/friend-26.jpg" },
+  { id: 26, image: "/friends/friend-26.jpg" },
 ];
 
 export function FriendsCarousel() {
@@ -89,11 +90,13 @@ export function FriendsCarousel() {
               zIndex: isCenter ? 10 : 5,
               opacity: isCenter ? 1 : 0.5,
             }}
-            onClick={() => isClickable && handleAdjacentClick(position)}>
+            onClick={() => isClickable && handleAdjacentClick(position)}
+          >
             <div
               className={`relative w-40 h-56 sm:w-64 sm:h-96 rounded-2xl sm:rounded-3xl overflow-hidden border-4 sm:border-6 border-card shadow-2xl bg-card ${
                 isClickable ? "hover:shadow-xl transition-shadow" : ""
-              }`}>
+              }`}
+            >
               <Image
                 src={friend.image}
                 alt={`Foto ${friend.id}`}
