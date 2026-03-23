@@ -19,7 +19,7 @@ const friends = [
   { id: 11, image: "/friends/friend-11.jpg" },
   { id: 12, image: "/friends/friend-12.jpg" },
   { id: 13, image: "/friends/friend-13.jpg" },
-  { id: 14, image: "/friends/friend-14.jpg" },
+  { id: 14, image: "/friends/friend-29.jpg" },
   { id: 15, image: "/friends/friend-15.jpg" },
   { id: 16, image: "/friends/friend-16.jpg" },
   { id: 17, image: "/friends/friend-17.jpg" },
@@ -33,6 +33,8 @@ const friends = [
   { id: 25, image: "/friends/friend-25.jpg" },
   { id: 26, image: "/friends/friend-26.jpg" },
   { id: 27, image: "/friends/friend-27.jpg" },
+  { id: 28, image: "/friends/friend-28.jpg" },
+  { id: 29, image: "/friends/friend-14.jpg" },
 ];
 
 export function FriendsCarousel() {
