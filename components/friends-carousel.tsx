@@ -6,22 +6,17 @@ import Image from "next/image";
 // Fotos estaticas de las amigas - reemplaza con tus propias imagenes
 const friends = [
   { id: 0, image: "/friends/friend-0.jpg" },
-  { id: 1, image: "/friends/friend-1.jpg" },
   { id: 2, image: "/friends/friend-2.jpg" },
   { id: 3, image: "/friends/friend-3.jpg" },
   { id: 4, image: "/friends/friend-4.jpg" },
-  { id: 5, image: "/friends/friend-5.jpg" },
   { id: 6, image: "/friends/friend-6.jpg" },
   { id: 7, image: "/friends/friend-7.jpg" },
   { id: 8, image: "/friends/friend-8.jpg" },
   { id: 9, image: "/friends/friend-9.jpg" },
   { id: 10, image: "/friends/friend-10.jpg" },
-  { id: 11, image: "/friends/friend-11.jpg" },
   { id: 12, image: "/friends/friend-12.jpg" },
   { id: 13, image: "/friends/friend-13.jpg" },
-  { id: 14, image: "/friends/friend-29.jpg" },
   { id: 15, image: "/friends/friend-15.jpg" },
-  { id: 16, image: "/friends/friend-16.jpg" },
   { id: 17, image: "/friends/friend-17.jpg" },
   { id: 18, image: "/friends/friend-18.jpg" },
   { id: 19, image: "/friends/friend-19.jpg" },
@@ -34,7 +29,7 @@ const friends = [
   { id: 26, image: "/friends/friend-26.jpg" },
   { id: 27, image: "/friends/friend-27.jpg" },
   { id: 28, image: "/friends/friend-28.jpg" },
-  { id: 29, image: "/friends/friend-14.jpg" },
+  { id: 29, image: "/friends/friend-29.jpg" },
 ];
 
 export function FriendsCarousel() {
